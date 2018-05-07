@@ -193,7 +193,7 @@ function __vf_tmp --description "Create a virtualenv that will be removed when d
     set -g VF_TEMPORARY_ENV
 end
 
-function __vfsupport_remove_env_on_deactivate_or_exit --on-event virtualenv_did_deactivate --on-process %self
+function __vfsupport_remove_env_on_deactivate_or_exit --on-event virtualenv_did_deactivate --on-process $fish_pid
     if set -q VF_TEMPORARY_ENV
         echo "Removing temporary virtualenv" (basename $VIRTUAL_ENV)
         rm -rf $VIRTUAL_ENV
